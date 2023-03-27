@@ -1,0 +1,60 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.plebbit {  
+  height: 100px !important;
+  overflow: scroll;
+}
+
+.le-css {
+  overflow: auto;
+}
+
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+.table-test thead {
+  width: 97%;
+}
+.table-test tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-test thead, .table-test tbody, .table-test tr, .table-test td, .table-test th {
+  display: block;
+}
+.table-test tbody td, .table-test thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+.tableFixHead          { overflow: auto; height: 181px; width: 390px; }
+.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+.tableFixHead tbody th { position: sticky; left: 0; }
+
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
