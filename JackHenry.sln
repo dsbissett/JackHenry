@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackHenry.Ui", "JackHenry.U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackHenry.Data", "JackHenry.Data\JackHenry.Data.csproj", "{F7BDFEC3-4F3E-480B-9D8C-D1F858936698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JackHenry.Data.Tests", "JackHenry.Data.Tests\JackHenry.Data.Tests.csproj", "{687F5889-70AC-4D2E-8EAA-7E78F3CF0258}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackHenry.Data.Tests", "JackHenry.Data.Tests\JackHenry.Data.Tests.csproj", "{687F5889-70AC-4D2E-8EAA-7E78F3CF0258}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackHenry.Blazor.Client", "JackHenry.Blazor\Client\JackHenry.Blazor.Client.csproj", "{490801A2-5E9C-4606-A3AA-FD2DD3093538}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackHenry.Blazor.Server", "JackHenry.Blazor\Server\JackHenry.Blazor.Server.csproj", "{BA4B0B45-5714-44DD-80B1-21EFF24CC57D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JackHenry.Blazor.Shared", "JackHenry.Blazor\Shared\JackHenry.Blazor.Shared.csproj", "{247C60B9-7F6D-49D4-A495-03664EBE94B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{687F5889-70AC-4D2E-8EAA-7E78F3CF0258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{687F5889-70AC-4D2E-8EAA-7E78F3CF0258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{687F5889-70AC-4D2E-8EAA-7E78F3CF0258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{490801A2-5E9C-4606-A3AA-FD2DD3093538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490801A2-5E9C-4606-A3AA-FD2DD3093538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490801A2-5E9C-4606-A3AA-FD2DD3093538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490801A2-5E9C-4606-A3AA-FD2DD3093538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA4B0B45-5714-44DD-80B1-21EFF24CC57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4B0B45-5714-44DD-80B1-21EFF24CC57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4B0B45-5714-44DD-80B1-21EFF24CC57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4B0B45-5714-44DD-80B1-21EFF24CC57D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{247C60B9-7F6D-49D4-A495-03664EBE94B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247C60B9-7F6D-49D4-A495-03664EBE94B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247C60B9-7F6D-49D4-A495-03664EBE94B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247C60B9-7F6D-49D4-A495-03664EBE94B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

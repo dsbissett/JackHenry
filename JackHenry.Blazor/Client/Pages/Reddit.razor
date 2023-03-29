@@ -1,0 +1,113 @@
+﻿@page "/reddit";
+@using JackHenry.Blazor.Shared
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Collections.Concurrent
+@inject NavigationManager navigationManager
+@inject HubConnection HubConnection
+@inject RedditHttpClient RedditHttpClient
+<h3>Reddit</h3>
+<div class="row">
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Post Titles</th>
+            </tr>
+            </thead>
+            <tbody style="display: block; width: 385px; height: 550px; overflow: scroll">
+            @foreach (var title in postTitles)
+            {
+                <tr style="display:block">
+                        <td>@title</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Post Authors</th>
+            </tr>
+            </thead>
+            <tbody style="display: block; width: 385px; height: 550px; overflow: scroll">
+            @foreach (var author in postAuthors)
+            {
+                <tr style="display:block">
+                    <td>@author</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <h5 class="card-title">Post Count</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+            <div class="card-body">
+                <p className="display-1 text-center">@postCount</p>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    
+    private int postCount;
+
+    private IEnumerable<string> postTitles = new[] {"First!"};
+
+    private ConcurrentBag<string> postAuthors = new ConcurrentBag<string>();
+
+    protected override Task OnInitializedAsync()
+    {
+        this.Init();
+        Console.WriteLine("UI has been initialized!");
+        return base.OnInitializedAsync();
+    }
+
+    private async void Init()
+    {
+        if (this.HubConnection.State == HubConnectionState.Disconnected)
+        {
+            Console.Write("Hub connection starting...");
+            await this.HubConnection.StartAsync();
+            Console.WriteLine("started!");
+        }
+        
+        this.HubConnection.On<int>("SendPostCount", this.PostCountHandler);
+
+        this.HubConnection.On<IEnumerable<string>>("SendPostTitles", this.PostTitleHandler);
+        
+        this.HubConnection.On<IEnumerable<string>>("SendPostAuthors", this.PostAuthorsHandler);
+
+        await this.RedditHttpClient.StartPostCount();
+    }
+
+    private void PostTitleHandler(IEnumerable<string> titles)
+    {
+        Console.WriteLine("Post titles received!");
+
+        this.postTitles = (postTitles ?? Enumerable.Empty<string>()).Concat(titles ?? Enumerable.Empty<string>());
+    }
+
+    private void PostAuthorsHandler(IEnumerable<string> authors)
+    {
+        Console.WriteLine("Post author received!");
+
+        foreach (var item in authors)
+        {
+            this.postAuthors.Add(item);
+        }
+    }
+
+    private void PostCountHandler(int cnt)
+    {
+        Console.WriteLine($"PostCount update received: {cnt}");
+
+        this.postCount = cnt;
+
+        StateHasChanged();
+    }
+
+}
